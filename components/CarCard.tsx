@@ -4,7 +4,8 @@ import { CarProps, calculateCarRent } from '@/types'
 import Image from 'next/image'
 import { useState } from 'react'
 import CustomButton from './CustomButton'
-import CardDetails from './CardDetails'
+import CardDetails from './CarDetails'
+import CarDetails from './CarDetails'
 
 
 interface CarCardProps {
@@ -60,13 +61,12 @@ const CarCard = ({ car }: CarCardProps) => {
                         containerStyle='w-full py-[16px] rounded-full bg-primary-blue'
                         textStyles='text-white text-[14px] leading-[17px] font-bold'
                         rightIcon='/right-arrow.svg'
+                        handleClick={() => setIsOpen(true)}
                     />
                 </div>
             </div>
 
-            <CardDetails 
-                
-            />
+            <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
         </div>
     )
 }
